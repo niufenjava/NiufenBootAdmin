@@ -21,5 +21,5 @@ const store = new Vuex.Store({
   modules,
   getters
 })
-
+// 导出为 store 模块
 export default store

@@ -2,14 +2,21 @@
 * I think element-ui's default theme color is too light for long-term use.
 * So I modified the default color and you can modify it to your liking.
 **/
+/**
+ * 我认为element-ui的默认主题颜色太浅，不适合长期使用。
+ * 所以我修改了默认的颜色，你可以根据自己的喜好修改。
+ * https://element.eleme.io/#/zh-CN/theme/preview
+*/
 
 /* theme color */
-$--color-primary: #1890ff;
-$--color-success: #13ce66;
+/* 主题颜色 */
+$--color-primary: #156;
+$--color-success: #358D6D;
 $--color-warning: #FFBA00;
 $--color-danger: #ff4949;
 // $--color-info: #1E1E1E;
 
+// 按钮字体粗细
 $--button-font-weight: 400;
 
 // $--color-text-regular: #1f2d3d;

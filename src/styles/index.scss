@@ -1,24 +1,48 @@
+// 全局样式变量
 @import './variables.scss';
+// 小屏幕相关样式
 @import './mixin.scss';
+// 动画相关样式
 @import './transition.scss';
+// element-ui相关全局样式
 @import './element-ui.scss';
+// 滚动条相关样式
 @import './sidebar.scss';
+// 按钮相关样式
 @import './btn.scss';
 
+// 页面body体样式
 body {
-  height: 100%;
+  height: 100%; //高度占用100%
+  // font-smoothing是非标准的css渲染规则，由于不同操作系统对字体渲染不同，
+  // 不同浏览器也有自己对样式的一套解释规则，所以这个css样式至今也没有加入web标准。
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  // Text-rendering 属性是一个非标准属性，主要用来告诉渲染引擎（rendering engine）
+  // 渲染文字的时候如何来优化，浏览器根据这个属性来权衡速度、易读性、几何精度等方面。
+  // 暂时只有Gecko（Firefox）and WebKit（Safari 或 Chrome）支持这个属性。
+  // optimizeLegibility 绘制文本时易读性优先，会启用字距调整和连字
   text-rendering: optimizeLegibility;
+  // 字体
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 
+// 标签样式
 label {
+  // 字体粗细
   font-weight: 700;
 }
 
+// html 整体样式
 html {
   height: 100%;
+  /**
+   * box-sizing 属性允许你以某种方式定义某些元素，以适应指定区域。
+   * 例如，假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。
+   * 这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。
+   * border-box:指定宽度和高度（最小/最大属性）确定元素边框。也就是说，对元素指定宽度和高度包括了 padding 和 border 。
+   * 通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+   */
   box-sizing: border-box;
 }
 
@@ -29,62 +53,95 @@ html {
 *,
 *:before,
 *:after {
+  /**
+   * inherit：指定 box-sizing 属性的值，应该从父元素继承
+   */
   box-sizing: inherit;
 }
 
+// class 填充 0px
 .no-padding {
   padding: 0px !important;
 }
 
+// class 填充左右 4px
 .padding-content {
   padding: 4px 0;
 }
 
 a:focus,
 a:active {
+  // outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。
   outline: none;
 }
 
+// focus 当a标签获得焦点的时候
+// hover 当在a标签上悬浮时
+// cursor 属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状
+// cursor: pointer 光标呈现为指示链接的指针（一只手）
+// color: inherit; //字体颜色，集成
+// text-decoration 属性规定添加到文本的修饰，下划线、上划线、删除线等。
+// text-decoration: none 默认。定义标准的文本。
 a,
 a:focus,
 a:hover {
   cursor: pointer;
-  color: inherit;
+  color: inherit; //字体颜色，集成
   text-decoration: none;
 }
 
+// div:focus 当div标签获得焦点的时候
+// https://www.runoob.com/cssref/pr-outline.html
+// outline: none
 div:focus {
   outline: none;
 }
 
+// float属性指定一个盒子（元素）是否应该浮动。
+// class fr 盒子内向右浮动
 .fr {
   float: right;
 }
 
+// class fr 盒子内向左浮动
 .fl {
   float: left;
 }
 
+// class pr-5 向右填充5px
 .pr-5 {
   padding-right: 5px;
 }
 
+// class pl-5 向左填充5px
 .pl-5 {
   padding-left: 5px;
 }
 
+// class block 块儿元素
+// display 属性规定元素应该生成的框的类型。
+// display: block  此元素将显示为块级元素，此元素前后会带有换行符。
 .block {
   display: block;
 }
 
+// class pointer 光标呈现为指示链接的指针（一只手）
 .pointer {
   cursor: pointer;
 }
 
+// class inlineBlock 行内块儿元素
 .inlineBlock {
   display: block;
 }
 
+// class clearfix 清除浮动
+// &:after 在每个&元素之后插入内容
+// visibility属性指定一个元素是否是可见的。
+// visibility: hidden; 元素是不可见的。隐藏元素
+// content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。
+// clear属性指定段落的左侧或右侧不允许浮动的元素。
+// clear: both; 在左右两侧均不允许浮动元素。
 .clearfix {
   &:after {
     visibility: hidden;
@@ -96,6 +153,7 @@ div:focus {
   }
 }
 
+// aside标签样式
 aside {
   background: #eef1f6;
   padding: 8px 24px;
@@ -124,19 +182,23 @@ aside {
   padding: 20px;
 }
 
+// class 组件容器类
 .components-container {
   margin: 30px 50px;
   position: relative;
 }
 
+// class 分页容器类
 .pagination-container {
   margin-top: 30px;
 }
 
+// 文本居中
 .text-center {
   text-align: center
 }
 
+// 子导航样式
 .sub-navbar {
   height: 50px;
   line-height: 50px;
