@@ -47,6 +47,7 @@ const mutations = {
 }
 
 const actions = {
+  // 根据角色生成路由
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
       let accessedRoutes

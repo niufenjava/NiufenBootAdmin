@@ -4,6 +4,7 @@
 
 /**
  * Parse the time to string
+ * 解析时间类型 为 字符串
  * @param {(Object|string|number)} time
  * @param {string} cFormat
  * @returns {string | null}
@@ -44,6 +45,7 @@ export function parseTime(time, cFormat) {
 }
 
 /**
+ * 日期格式化
  * @param {number} time
  * @param {string} option
  * @returns {string}
@@ -87,6 +89,7 @@ export function formatTime(time, option) {
 }
 
 /**
+ * 获取url的参数
  * @param {string} url
  * @returns {Object}
  */
@@ -106,6 +109,7 @@ export function getQueryObject(url) {
 }
 
 /**
+ * 字符串长度
  * @param {string} input value
  * @returns {number} output value
  */
@@ -122,6 +126,7 @@ export function byteLength(str) {
 }
 
 /**
+ * 清除数组
  * @param {Array} actual
  * @returns {Array}
  */
@@ -136,6 +141,7 @@ export function cleanArray(actual) {
 }
 
 /**
+ * json 转 数组
  * @param {Object} json
  * @returns {Array}
  */
@@ -150,6 +156,7 @@ export function param(json) {
 }
 
 /**
+ * url转对象
  * @param {string} url
  * @returns {Object}
  */
@@ -170,6 +177,7 @@ export function param2Obj(url) {
 }
 
 /**
+ * html 转 text
  * @param {string} val
  * @returns {string}
  */
@@ -180,6 +188,7 @@ export function html2Text(val) {
 }
 
 /**
+ * 合并两个对象，给最后一个对象优先权
  * Merges two objects, giving the last one precedence
  * @param {Object} target
  * @param {(Object|Array)} source
@@ -204,6 +213,7 @@ export function objectMerge(target, source) {
 }
 
 /**
+ * 切换class
  * @param {HTMLElement} element
  * @param {string} className
  */
@@ -224,6 +234,7 @@ export function toggleClass(element, className) {
 }
 
 /**
+ * 获取时间
  * @param {string} type
  * @returns {Date}
  */
@@ -236,6 +247,7 @@ export function getTime(type) {
 }
 
 /**
+ * 防反跳
  * @param {Function} func
  * @param {number} wait
  * @param {boolean} immediate
@@ -277,9 +289,13 @@ export function debounce(func, wait, immediate) {
 }
 
 /**
+ * 深度克隆
  * This is just a simple version of deep copy
  * Has a lot of edge cases bug
  * If you want to use a perfect deep copy, use lodash's _.cloneDeep
+ * 这只是deep copy的一个简单版本
+ * 有很多边界情况bug吗
+ * 如果你想要一个完美的深度拷贝，使用lodash的_.cloneDeep
  * @param {Object} source
  * @returns {Object}
  */
@@ -299,6 +315,7 @@ export function deepClone(source) {
 }
 
 /**
+ * 数组set
  * @param {Array} arr
  * @returns {Array}
  */
@@ -307,6 +324,7 @@ export function uniqueArr(arr) {
 }
 
 /**
+ * 创建唯一的字符串
  * @returns {string}
  */
 export function createUniqueString() {
@@ -316,6 +334,7 @@ export function createUniqueString() {
 }
 
 /**
+ * 检查 element 是否有class
  * Check if an element has a class
  * @param {HTMLElement} elm
  * @param {string} cls
@@ -326,6 +345,7 @@ export function hasClass(ele, cls) {
 }
 
 /**
+ * 为元素添加 class
  * Add class to element
  * @param {HTMLElement} elm
  * @param {string} cls
@@ -335,6 +355,7 @@ export function addClass(ele, cls) {
 }
 
 /**
+ * 为元素移除 class
  * Remove class from element
  * @param {HTMLElement} elm
  * @param {string} cls
@@ -344,4 +365,8 @@ export function removeClass(ele, cls) {
     const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)')
     ele.className = ele.className.replace(reg, ' ')
   }
+}
+
+export function jsonFormat(obj) {
+  return JSON.stringify(obj, null, 2)
 }

@@ -66,3 +66,10 @@ export function toThousandFilter(num) {
 export function uppercaseFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
+
+/**
+ * obj 转 字符串并格式化
+ */
+export function jsonFormat(obj) {
+  return JSON.stringify(obj, null, 2)
+}

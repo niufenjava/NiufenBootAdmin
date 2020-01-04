@@ -45,26 +45,35 @@ const actions = {
   },
 
   // get user info
+  // 获取用户信息
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
+      // 调用API获取用户信息，传参为token
       getInfo(state.token).then(response => {
         const { data } = response
 
         if (!data) {
-          reject('Verification failed, please Login again.')
+          // reject('Verification failed, please Login again.')
+          reject('验证失败，请重新登录！')
         }
 
         const { roles, name, avatar, introduction } = data
 
         // roles must be a non-empty array
+        // 角色必须是非空数组
         if (!roles || roles.length <= 0) {
-          reject('getInfo: roles must be a non-null array!')
+          reject('getInfo: 您没有登录权限！')
         }
 
+        // 设置角色
         commit('SET_ROLES', roles)
+        // 设置名称
         commit('SET_NAME', name)
+        // 设置化身
         commit('SET_AVATAR', avatar)
+        // 设置引言
         commit('SET_INTRODUCTION', introduction)
+        // 处理数据
         resolve(data)
       }).catch(error => {
         reject(error)

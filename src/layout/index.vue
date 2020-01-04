@@ -1,13 +1,22 @@
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <!-- 左边菜单栏 -->
     <sidebar class="sidebar-container" />
+
+    <!-- 右侧header+tags+main -->
     <div :class="{hasTagsView:needTagsView}" class="main-container">
+
+      <!-- 顶部header+tags -->
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
         <tags-view v-if="needTagsView" />
       </div>
+
+      <!-- main区域 -->
       <app-main />
+
+      <!-- 右侧setting设置按钮 -->
       <right-panel v-if="showSettings">
         <settings />
       </right-panel>
@@ -42,7 +51,9 @@ export default {
     }),
     classObj() {
       return {
+        // 隐藏侧边栏class
         hideSidebar: !this.sidebar.opened,
+        // 打开侧边栏class
         openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
@@ -61,6 +72,7 @@ export default {
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";
 
+  // app 整体包装类
   .app-wrapper {
     @include clearfix;
     position: relative;

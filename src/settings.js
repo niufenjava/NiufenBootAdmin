@@ -4,7 +4,7 @@ module.exports = {
   /**
    * @description 设置当前窗口标题
    */
-  title: '部队住房管理系统',
+  title: 'XXXX管理系统',
 
   /**
    * @type {boolean} true | false
