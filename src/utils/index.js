@@ -367,6 +367,9 @@ export function removeClass(ele, cls) {
   }
 }
 
+/**
+ * obj 转 字符串并格式化
+ */
 export function jsonFormat(obj) {
   return JSON.stringify(obj, null, 2)
 }

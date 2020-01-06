@@ -37,6 +37,7 @@
       height: 100%;
     }
 
+    // 显示logo时，侧边栏的滚动条长度减去50px
     &.has-logo {
       .el-scrollbar {
         height: calc(100% - 50px);

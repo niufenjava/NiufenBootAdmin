@@ -1,6 +1,9 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+
+    <!-- 如果是手机模式，打开侧边栏的时候需要一个遮罩 -->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+
     <!-- 左边菜单栏 -->
     <sidebar class="sidebar-container" />
 
@@ -9,7 +12,9 @@
 
       <!-- 顶部header+tags -->
       <div :class="{'fixed-header':fixedHeader}">
+        <!-- 顶部导航 -->
         <navbar />
+        <!-- tags -->
         <tags-view v-if="needTagsView" />
       </div>
 
@@ -55,7 +60,9 @@ export default {
         hideSidebar: !this.sidebar.opened,
         // 打开侧边栏class
         openSidebar: this.sidebar.opened,
+        // 是否动画
         withoutAnimation: this.sidebar.withoutAnimation,
+        // 是否筹集设备
         mobile: this.device === 'mobile'
       }
     }

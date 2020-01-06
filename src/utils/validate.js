@@ -3,6 +3,7 @@
  */
 
 /**
+ * 判断是否外部链接
  * @param {string} path
  * @returns {Boolean}
  */
