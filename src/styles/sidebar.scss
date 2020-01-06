@@ -1,7 +1,8 @@
 #app {
-
+  // 右侧主区域容器类
   .main-container {
     min-height: 100%;
+    // 切换动画
     transition: margin-left .28s;
     margin-left: $sideBarWidth;
     position: relative;

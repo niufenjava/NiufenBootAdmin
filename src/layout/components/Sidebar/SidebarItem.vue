@@ -1,17 +1,40 @@
 <template>
+  <!-- 具体菜单对象 -->
   <div v-if="!item.hidden" class="menu-wrapper">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
+      <!-- link标签 -->
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
+        <!--
+          elementUI 菜单项 Menu-Item Attribute
+          index : 唯一标志
+          route : Vue Router 路径对象
+          disabled : 是否禁用
+         -->
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
+          <!-- 图标+菜单名 -->
           <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="onlyOneChild.meta.title" />
         </el-menu-item>
       </app-link>
     </template>
 
+    <!--
+      SubMenu Attribute 子菜单属性
+      index : 唯一标志
+      popper-class : 弹出菜单的自定义类名
+      show-timeout : 展开 sub-menu 的延时	默认300
+      hide-timeout : 收起 sub-menu 的延时	默认300
+      disabled : 是否禁用
+      popper-append-to-body : 是否将弹出菜单插入至 body 元素。在菜单的定位出现问题时，可尝试修改该属性
+                              一级子菜单：true / 非一级子菜单：false
+     -->
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+
+      <!-- 父菜单名：图标+菜单名 -->
       <template slot="title">
         <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
       </template>
+
+      <!-- 递归子菜单 -->
       <sidebar-item
         v-for="child in item.children"
         :key="child.path"

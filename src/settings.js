@@ -11,7 +11,7 @@ module.exports = {
    * @description Whether show the settings right-panel
    * @description 是否显示左侧全局设置面板
    */
-  showSettings: false,
+  showSettings: true,
 
   /**
    * @type {boolean} true | false

@@ -1,3 +1,6 @@
+/**
+ * vuex 设置
+ */
 import variables from '@/styles/element-variables.scss'
 import defaultSettings from '@/settings'
 

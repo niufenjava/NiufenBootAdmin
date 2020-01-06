@@ -229,7 +229,10 @@ export const asyncRoutes = [{
   }]
 },
 
-/** when your routing map is too long, you can split it into small modules **/
+/**
+ * when your routing map is too long, you can split it into small modules
+ * 当你的路由图太长时，你可以把它分成小模块
+ */
 componentsRouter,
 chartsRouter,
 nestedRouter,
