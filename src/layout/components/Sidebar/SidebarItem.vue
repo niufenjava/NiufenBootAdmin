@@ -1,6 +1,6 @@
 <template>
   <!-- 具体菜单对象 -->
-  <div v-if="!item.hidden" class="menu-wrapper">
+  <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <!-- link标签 -->
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">

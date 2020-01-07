@@ -56,7 +56,7 @@ import * as filters from './filters' // global filters
  * you can execute: mockXHR()
  *
  * Currently MockJs will be used in the production environment,
- * please remove it before going online! ! !
+ * please remove it before going online ! ! !
  */
 /**
  * 如果你不想使用mock服务器，
@@ -66,13 +66,11 @@ import * as filters from './filters' // global filters
  * 目前MockJs将在生产环境中使用，
  * 请在上线前删除它!!!
  * */
-// 导入mock
-import {
-  mockXHR
-} from '../mock'
 // 如果是开发环境，执行 mockXHR()
-if (process.env.NODE_ENV === 'development') {
-  mockXHR()
+if (process.env.NODE_ENV === 'production') {
+  import('../mock').then(({ mockXHR }) => {
+    mockXHR()
+  })
 }
 
 // 设置ElementUI 的默认大小为中等
