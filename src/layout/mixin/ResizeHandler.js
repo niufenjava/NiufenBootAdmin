@@ -1,7 +1,10 @@
+// 导入vuex store
 import store from '@/store'
 
 const { body } = document
-const WIDTH = 992 // refer to Bootstrap's responsive design
+// refer to Bootstrap's responsive design
+// 参考Bootstrap的响应式设计
+const WIDTH = 992
 
 export default {
   watch: {

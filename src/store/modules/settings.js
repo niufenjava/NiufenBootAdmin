@@ -1,7 +1,9 @@
 /**
  * vuex 设置
  */
+// 样式变量
 import variables from '@/styles/element-variables.scss'
+// 默认配置文件
 import defaultSettings from '@/settings'
 
 const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings

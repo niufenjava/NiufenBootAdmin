@@ -58,7 +58,6 @@ import nestedRouter from './modules/nested'
  */
 export const constantRoutes = [
   {
-    //
     path: '/redirect',
     component: Layout,
     hidden: true,
@@ -68,7 +67,6 @@ export const constantRoutes = [
     }]
   },
   {
-    // 登录页面
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
@@ -89,7 +87,6 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    //
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -98,7 +95,6 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       name: 'Dashboard',
       meta: {
-        // title: 'Dashboard',
         title: '首页',
         icon: 'dashboard',
         affix: true
@@ -107,7 +103,6 @@ export const constantRoutes = [
   },
 
   {
-    // 存储demo
     path: '/store',
     component: Layout,
     children: [{

@@ -44,7 +44,8 @@ export default {
   computed: {
     /**
      * 固定 Header
-     * get 从settings 中获取
+     * get 从 settings 中获取
+     * set 设置
      */
     fixedHeader: {
       get() {

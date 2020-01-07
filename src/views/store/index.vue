@@ -4,6 +4,11 @@
       <div><span>defaultSettings</span>：<span>{{ defaultSettings }}</span></div>
     </el-row>
     <el-row><span>getters.roles</span>：<span>{{ getters.roles }}</span></el-row>
+    <el-row>
+      <el-button type="success" @click="toggleSideBar">toggleSideBar</el-button>
+      <el-button type="success" @click="handleClickOutside">handleClickOutside</el-button>
+      <el-button type="success" @click="isMobile=!isMobile">toogleDevice</el-button>
+    </el-row>
     <el-row><span>getters.sidebar</span>：<span>{{ getters.sidebar }}</span></el-row>
     <el-row><span>getters.size</span>：<span>{{ getters.size }}</span></el-row>
     <el-row><span>getters.device</span>：<span>{{ getters.device }}</span></el-row>
@@ -14,7 +19,7 @@
     <el-row><span>getters.name</span>：<span>{{ getters.name }}</span></el-row>
     <el-row><span>getters.introduction</span>：<span>{{ getters.introduction }}</span></el-row>
     <el-row><span>getters.errorLogs</span>：<span>{{ getters.errorLogs }}</span></el-row>
-    <el-row><span>getters.permission_routes.size</span>：<span>{{ getters.permission_routes.size }}</span></el-row>
+    <el-row><span>getters.permission_routes</span>：<span>{{ getters.permission_routes }}</span></el-row>
 
   </div>
 </template>
@@ -22,6 +27,11 @@
 <script>
 import defaultSettings from '@/settings'
 export default {
+  data() {
+    return {
+      isMobile: true
+    }
+  },
   computed: {
     getters() {
       return this.$store.getters
@@ -29,6 +39,23 @@ export default {
     defaultSettings() {
       return defaultSettings
     }
+  },
+  watch: {
+    isMobile(newVal) {
+      this.toogleDevice(newVal)
+    }
+  },
+  methods: {
+    toggleSideBar() {
+      this.$store.dispatch('app/toggleSideBar')
+    },
+    handleClickOutside() {
+      this.$store.dispatch('app/closeSideBar', { withoutAnimation: true })
+    },
+    toogleDevice(isMobile) {
+      this.$store.dispatch('app/toggleDevice', isMobile ? 'mobile' : 'desktop')
+    }
+
   }
 }
 </script>
