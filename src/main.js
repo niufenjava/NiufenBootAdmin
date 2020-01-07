@@ -67,7 +67,7 @@ import * as filters from './filters' // global filters
  * 请在上线前删除它!!!
  * */
 // 如果是开发环境，执行 mockXHR()
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   import('../mock').then(({ mockXHR }) => {
     mockXHR()
   })
