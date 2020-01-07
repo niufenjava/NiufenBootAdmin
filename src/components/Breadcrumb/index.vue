@@ -1,8 +1,13 @@
 <template>
+  <!-- 面包屑组件 -->
   <el-breadcrumb class="app-breadcrumb" separator="/">
+    <!-- 面包屑动画 -->
     <transition-group name="breadcrumb">
+      <!-- 面包屑项 -->
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
+        <!-- 当前路由，展示span -->
         <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.meta.title }}</span>
+        <!-- 父路由，展示a标签 -->
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
@@ -19,8 +24,10 @@ export default {
     }
   },
   watch: {
+    // 监视当前路由
     $route(route) {
       // if you go to the redirect page, do not update the breadcrumbs
+      // 如果你转到重定向页面，不要更新面包屑
       if (route.path.startsWith('/redirect/')) {
         return
       }
@@ -33,15 +40,17 @@ export default {
   methods: {
     getBreadcrumb() {
       // only show routes with meta.title
+      // 只显示带有meta.title的路由
       let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
       const first = matched[0]
 
       if (!this.isDashboard(first)) {
-        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
       }
 
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
     },
+    // 判断路由是否为首页
     isDashboard(route) {
       const name = route && route.name
       if (!name) {
@@ -55,6 +64,7 @@ export default {
       var toPath = pathToRegexp.compile(path)
       return toPath(params)
     },
+    // 打开路由
     handleLink(item) {
       const { redirect, path } = item
       if (redirect) {

@@ -8,7 +8,8 @@ const tableRouter = {
   redirect: '/table/complex-table',
   name: 'Table',
   meta: {
-    title: 'Table',
+    alias: 'Table',
+    title: '表格',
     icon: 'table'
   },
   children: [
@@ -16,25 +17,25 @@ const tableRouter = {
       path: 'dynamic-table',
       component: () => import('@/views/table/dynamic-table/index'),
       name: 'DynamicTable',
-      meta: { title: 'Dynamic Table' }
+      meta: { alias: 'Dynamic Table', title: '动态表格' }
     },
     {
       path: 'drag-table',
       component: () => import('@/views/table/drag-table'),
       name: 'DragTable',
-      meta: { title: 'Drag Table' }
+      meta: { alias: 'Drag Table', title: '拖拽表格' }
     },
     {
       path: 'inline-edit-table',
       component: () => import('@/views/table/inline-edit-table'),
       name: 'InlineEditTable',
-      meta: { title: 'Inline Edit' }
+      meta: { alias: 'Inline Edit', title: '表格内编辑' }
     },
     {
       path: 'complex-table',
       component: () => import('@/views/table/complex-table'),
       name: 'ComplexTable',
-      meta: { title: 'Complex Table' }
+      meta: { alias: 'Complex Table', title: '综合表格' }
     }
   ]
 }

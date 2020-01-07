@@ -1,23 +1,33 @@
 <template>
+  <!-- Header Navbar -->
   <div class="navbar">
+
+    <!-- 左侧菜单展开-关闭按钮 -->
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
+    <!-- 面包屑组件 -->
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
+    <!-- 右侧菜单 -->
     <div class="right-menu">
+      <!-- 如果不是手机模式，展示 -->
       <template v-if="device!=='mobile'">
+        <!-- 菜单搜索组件 -->
         <search id="header-search" class="right-menu-item" />
 
         <error-log class="errLog-container right-menu-item hover-effect" />
 
+        <!-- 是否全屏按钮 -->
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
 
+        <!-- elementUI组件大小设置 -->
         <el-tooltip content="Global Size" effect="dark" placement="bottom">
           <size-select id="size-select" class="right-menu-item hover-effect" />
         </el-tooltip>
 
       </template>
 
+      <!-- 头像下拉组件 -->
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -25,19 +35,26 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/profile/index">
-            <el-dropdown-item>Profile</el-dropdown-item>
+            <!-- <el-dropdown-item>Profile</el-dropdown-item> -->
+            <el-dropdown-item>配置</el-dropdown-item>
           </router-link>
+          <!-- 转到首页 -->
           <router-link to="/">
-            <el-dropdown-item>Dashboard</el-dropdown-item>
+            <!-- <el-dropdown-item>Dashboard</el-dropdown-item> -->
+            <el-dropdown-item>首页</el-dropdown-item>
           </router-link>
+          <!-- github -->
           <a target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">
             <el-dropdown-item>Github</el-dropdown-item>
           </a>
+          <!-- 文档连接 -->
           <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
             <el-dropdown-item>Docs</el-dropdown-item>
           </a>
+          <!-- 退出登录 -->
           <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
+            <!-- <span style="display:block;">Log Out</span> -->
+            <span style="display:block;">注销</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>

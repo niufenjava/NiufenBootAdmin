@@ -1,4 +1,5 @@
 <template>
+  <!-- 汉堡包组件 -->
   <div style="padding: 0 15px;" @click="toggleClick">
     <svg
       :class="{'is-active':isActive}"
@@ -39,6 +40,7 @@ export default {
 }
 
 .hamburger.is-active {
+  /* 旋转 div 元素：180° */
   transform: rotate(180deg);
 }
 </style>

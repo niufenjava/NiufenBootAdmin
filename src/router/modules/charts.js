@@ -8,7 +8,8 @@ const chartsRouter = {
   redirect: 'noRedirect',
   name: 'Charts',
   meta: {
-    title: 'Charts',
+    alias: 'Charts',
+    title: '图表',
     icon: 'chart'
   },
   children: [
@@ -16,19 +17,19 @@ const chartsRouter = {
       path: 'keyboard',
       component: () => import('@/views/charts/keyboard'),
       name: 'KeyboardChart',
-      meta: { title: 'Keyboard Chart', noCache: true }
+      meta: { alias: 'Keyboard Chart', title: '键盘图', noCache: true }
     },
     {
       path: 'line',
       component: () => import('@/views/charts/line'),
       name: 'LineChart',
-      meta: { title: 'Line Chart', noCache: true }
+      meta: { alias: 'Line Chart', title: '折线图', noCache: true }
     },
     {
       path: 'mix-chart',
       component: () => import('@/views/charts/mix-chart'),
       name: 'MixChart',
-      meta: { title: 'Mix Chart', noCache: true }
+      meta: { alias: 'Mix Chart', title: '柱状图', noCache: true }
     }
   ]
 }

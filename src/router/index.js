@@ -58,6 +58,7 @@ import nestedRouter from './modules/nested'
  */
 export const constantRoutes = [
   {
+    //
     path: '/redirect',
     component: Layout,
     hidden: true,
@@ -67,6 +68,7 @@ export const constantRoutes = [
     }]
   },
   {
+    desc: '登录页面',
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
@@ -87,6 +89,7 @@ export const constantRoutes = [
     hidden: true
   },
   {
+
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -95,6 +98,7 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       name: 'Dashboard',
       meta: {
+        alias: 'Dashboard',
         title: '首页',
         icon: 'dashboard',
         affix: true
@@ -110,6 +114,7 @@ export const constantRoutes = [
       component: () => import('@/views/store/index'),
       name: 'Store',
       meta: {
+        alias: 'store',
         title: '客户端存储',
         icon: 'international',
         affix: true
@@ -124,7 +129,8 @@ export const constantRoutes = [
       component: () => import('@/views/documentation/index'),
       name: 'Documentation',
       meta: {
-        title: 'Documentation',
+        alias: 'Documentation',
+        title: '文档',
         icon: 'documentation',
         affix: true
       }
@@ -139,7 +145,8 @@ export const constantRoutes = [
       component: () => import('@/views/guide/index'),
       name: 'Guide',
       meta: {
-        title: 'Guide',
+        alias: 'Guide',
+        title: '引导页',
         icon: 'guide',
         noCache: true
       }
@@ -155,7 +162,8 @@ export const constantRoutes = [
       component: () => import('@/views/profile/index'),
       name: 'Profile',
       meta: {
-        title: 'Profile',
+        alias: 'Profile',
+        title: '个人中心',
         icon: 'user',
         noCache: true
       }
@@ -172,19 +180,21 @@ export const asyncRoutes = [{
   path: '/permission',
   component: Layout,
   redirect: '/permission/page',
-  alwaysShow: true, // will always show the root menu
+  alwaysShow: true, // will always show the root menu 总是显示根菜单吗
   name: 'Permission',
   meta: {
-    title: 'Permission',
+    title: '权限测试页',
+    alias: 'Permission',
     icon: 'lock',
-    roles: ['admin', 'editor'] // you can set roles in root nav
+    roles: ['admin', 'editor'] // you can set roles in root nav 可以在根导航中设置角色
   },
   children: [{
     path: 'page',
     component: () => import('@/views/permission/page'),
     name: 'PagePermission',
     meta: {
-      title: 'Page Permission',
+      title: '页面权限',
+      alias: 'Page Permission',
       roles: ['admin'] // or you can only set roles in sub nav
     }
   },
@@ -193,7 +203,8 @@ export const asyncRoutes = [{
     component: () => import('@/views/permission/directive'),
     name: 'DirectivePermission',
     meta: {
-      title: 'Directive Permission'
+      title: '指令权限',
+      alias: 'Directive Permission'
       // if do not set roles, means: this page does not require permission
     }
   },
@@ -202,7 +213,8 @@ export const asyncRoutes = [{
     component: () => import('@/views/permission/role'),
     name: 'RolePermission',
     meta: {
-      title: 'Role Permission',
+      alias: 'Role Permission',
+      title: '角色权限',
       roles: ['admin']
     }
   }
@@ -217,7 +229,8 @@ export const asyncRoutes = [{
     component: () => import('@/views/icons/index'),
     name: 'Icons',
     meta: {
-      title: 'Icons',
+      alias: 'Icons',
+      title: '图标',
       icon: 'icon',
       noCache: true
     }
@@ -239,7 +252,8 @@ tableRouter,
   redirect: '/example/list',
   name: 'Example',
   meta: {
-    title: 'Example',
+    alias: 'Example',
+    title: '综合实例',
     icon: 'example'
   },
   children: [{
@@ -247,7 +261,8 @@ tableRouter,
     component: () => import('@/views/example/create'),
     name: 'CreateArticle',
     meta: {
-      title: 'Create Article',
+      alias: 'Create Article',
+      title: '创建文章',
       icon: 'edit'
     }
   },
@@ -256,7 +271,8 @@ tableRouter,
     component: () => import('@/views/example/edit'),
     name: 'EditArticle',
     meta: {
-      title: 'Edit Article',
+      alias: 'Edit Article',
+      title: '编辑文章',
       noCache: true,
       activeMenu: '/example/list'
     },
@@ -267,7 +283,8 @@ tableRouter,
     component: () => import('@/views/example/list'),
     name: 'ArticleList',
     meta: {
-      title: 'Article List',
+      title: '文章列表',
+      alias: 'Article List',
       icon: 'list'
     }
   }
@@ -282,7 +299,8 @@ tableRouter,
     component: () => import('@/views/tab/index'),
     name: 'Tab',
     meta: {
-      title: 'Tab',
+      alias: 'Tab',
+      title: '选项卡',
       icon: 'tab'
     }
   }]
@@ -294,7 +312,8 @@ tableRouter,
   redirect: 'noRedirect',
   name: 'ErrorPages',
   meta: {
-    title: 'Error Pages',
+    alias: 'Error Pages',
+    title: '错误页面',
     icon: '404'
   },
   children: [{
@@ -302,7 +321,8 @@ tableRouter,
     component: () => import('@/views/error-page/401'),
     name: 'Page401',
     meta: {
-      title: '401',
+      alias: '401',
+      title: '401无权限页面',
       noCache: true
     }
   },
@@ -311,7 +331,8 @@ tableRouter,
     component: () => import('@/views/error-page/404'),
     name: 'Page404',
     meta: {
-      title: '404',
+      alias: '404',
+      title: '404错误页面',
       noCache: true
     }
   }
@@ -326,7 +347,8 @@ tableRouter,
     component: () => import('@/views/error-log/index'),
     name: 'ErrorLog',
     meta: {
-      title: 'Error Log',
+      alias: 'Error Log',
+      title: '异常日志',
       icon: 'bug'
     }
   }]
@@ -339,6 +361,7 @@ tableRouter,
   name: 'Excel',
   meta: {
     title: 'Excel',
+    alias: 'Excel',
     icon: 'excel'
   },
   children: [{
@@ -346,7 +369,8 @@ tableRouter,
     component: () => import('@/views/excel/export-excel'),
     name: 'ExportExcel',
     meta: {
-      title: 'Export Excel'
+      alias: 'Export Excel',
+      title: '导出 Excel'
     }
   },
   {
@@ -354,7 +378,8 @@ tableRouter,
     component: () => import('@/views/excel/select-excel'),
     name: 'SelectExcel',
     meta: {
-      title: 'Export Selected'
+      alias: 'Export Selected',
+      title: '导出已选'
     }
   },
   {
@@ -362,7 +387,8 @@ tableRouter,
     component: () => import('@/views/excel/merge-header'),
     name: 'MergeHeader',
     meta: {
-      title: 'Merge Header'
+      alias: 'Merge Header',
+      title: '合并表头'
     }
   },
   {
@@ -370,7 +396,8 @@ tableRouter,
     component: () => import('@/views/excel/upload-excel'),
     name: 'UploadExcel',
     meta: {
-      title: 'Upload Excel'
+      alias: 'Upload Excel',
+      title: '上传 Excel'
     }
   }
   ]
@@ -391,7 +418,8 @@ tableRouter,
     component: () => import('@/views/zip/index'),
     name: 'ExportZip',
     meta: {
-      title: 'Export Zip'
+      alias: 'Export Zip',
+      title: '导出 Zip'
     }
   }]
 },
@@ -406,6 +434,7 @@ tableRouter,
     name: 'PDF',
     meta: {
       title: 'PDF',
+      alias: 'PDF',
       icon: 'pdf'
     }
   }]
@@ -424,7 +453,8 @@ tableRouter,
     component: () => import('@/views/theme/index'),
     name: 'Theme',
     meta: {
-      title: 'Theme',
+      alias: 'Theme',
+      title: '主题',
       icon: 'theme'
     }
   }]
@@ -438,7 +468,8 @@ tableRouter,
     component: () => import('@/views/clipboard/index'),
     name: 'ClipboardDemo',
     meta: {
-      title: 'Clipboard',
+      alias: 'Clipboard',
+      title: '剪贴板',
       icon: 'clipboard'
     }
   }]
@@ -450,7 +481,8 @@ tableRouter,
   children: [{
     path: 'https://github.com/PanJiaChen/vue-element-admin',
     meta: {
-      title: 'External Link',
+      alias: 'External Link',
+      title: '外部链接',
       icon: 'link'
     }
   }]
