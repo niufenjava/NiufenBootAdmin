@@ -8,19 +8,19 @@ const roles = [
   {
     key: 'admin',
     name: 'admin',
-    description: 'Super Administrator. Have access to view all pages.',
+    description: '超级管理员。可以查看所有页面.',
     routes: routes
   },
   {
     key: 'editor',
     name: 'editor',
-    description: 'Normal Editor. Can see all pages except permission page',
+    description: '正常的编辑器。可以看到除权限页以外的所有页面吗',
     routes: routes.filter(i => i.path !== '/permission')// just a mock
   },
   {
     key: 'visitor',
     name: 'visitor',
-    description: 'Just a visitor. Can only see the home page and the document page',
+    description: '只是一个游客。只能看到主页和文档页吗',
     routes: [{
       path: '',
       redirect: 'dashboard',
